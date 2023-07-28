@@ -5,20 +5,21 @@ export const useNotesStore = defineStore('notes', {
   state: () => {
     return {
       notes_array: [], // array of objects
-      new_note_title: "",
-      new_note_content: "", 
     }
   },
   // actions
   actions: {
-    addNotes() {
+    addNotes(title, content) {
       this.notes_array.push(
         {
           id: this.notesLength,
-          title: "Note Title",
-          content: "Falfkw falfwkaowfalcjaknmher obre wogjbv woegw wejf", 
+          title: title,
+          content: content,
         }
       );
+      // resets both state to blank - blank input when adding new todo
+      this.new_note_title = ""
+      this.new_note_content = ""
     },
   },
   getters: {

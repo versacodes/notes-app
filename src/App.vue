@@ -12,6 +12,9 @@ function setAddingTodo() {
   is_adding_todo.value = !is_adding_todo.value
 }
 
+const title = ref("") // note title
+const content = ref("") // note content
+
 </script>
 
 <template>
@@ -24,7 +27,12 @@ function setAddingTodo() {
       @click="setAddingTodo"
     />
   </template>
-  <NotesAdd v-else/>
+  <NotesAdd
+    v-else
+    v-model:note_title="title"
+    v-model:note_content="content"
+    @add-note-event="store.addNotes(title, content); setAddingTodo();"
+  />
 </template>
 
 <style scoped>
