@@ -1,6 +1,10 @@
 <script setup>
 import NotesListSection from "./components/NotesListSection.vue"
 import BaseButton from "./components/BaseButton.vue"
+import { useNotesStore } from "./store/notesStore.js"
+
+const store = useNotesStore()
+
 </script>
 
 <template>
@@ -9,6 +13,7 @@ import BaseButton from "./components/BaseButton.vue"
   <BaseButton
     name_btn="New Note"
     class="px-4 py-2 bg-[#649] text-white text-lg mt-3 font-semibold"
+    @click="store.addNotes"
   />
 </template>
 
