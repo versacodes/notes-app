@@ -16,7 +16,7 @@ defineEmits(['addNoteEvent', 'update:note_title', 'update:note_content'])
 
 <template>
   <h1 class="text-4xl mb-5 font-bold">Add Todo</h1>
-  <div class="md:max-w-[36rem] max-w-[20rem] w-full">
+  <div class="w-full">
     <BaseInput
         type="text"
         placeholder="Enter title"
