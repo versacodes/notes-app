@@ -21,7 +21,7 @@ const content = ref("") // note content
 <template>
   <!-- wrapper class for center aligned -->
   <main class="flex flex-col justify-center items-center w-[75%] md:w-[60%]">
-    <template v-if="!is_adding_todo">
+    <template v-if="!is_adding_note">
       <h1 class="text-zinc-900 font-bold text-4xl mb-5">notes</h1>
       <NotesListSection />
       <BaseButton
