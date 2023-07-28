@@ -10,10 +10,13 @@ const store = useNotesStore()
 <template>
   <template v-if="store.notes_array.length != 0">
     <section
-      class="md:max-w-[36rem] max-w-[20rem] bg-neutral-50 mx-auto h-[20rem] overflow-y-scroll" 
-      v-for="note in store.notes_array"
+      class="md:max-w-[36rem] max-w-[20rem] bg-neutral-50 mx-auto h-[20rem] overflow-y-scroll"
     >
-      <NotesCard />
+      <NotesCard
+        v-for="note in store.notes_array"
+        :note_title="note.title"
+        :note_content="note.content"
+      />
     </section>
   </template>
   <p

@@ -14,13 +14,16 @@ export const useNotesStore = defineStore('notes', {
     addNotes() {
       this.notes_array.push(
         {
-          id: 0,
+          id: this.notesLength,
           title: "Note Title",
           content: "Falfkw falfwkaowfalcjaknmher obre wogjbv woegw wejf", 
         }
       );
-      
     },
   },
-  // getters
+  getters: {
+    notesLength: (state) => {
+      return state.notes_array.length
+    },
+  }
 })
