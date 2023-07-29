@@ -12,7 +12,10 @@ const store = useNotesStore()
     <h2 class="font-bold text-3xl mb-6 text-stone-800">{{ store.notes_array[store.open_note_index].title }}</h2>
     <p class="text-stone-700 text-md">{{ store.notes_array[store.open_note_index].content }}</p>
   </div>
-  <BaseButton class="px-4 py-2 bg-[#649] text-white text-lg mx-auto mt-3 font-semibold w-full">
+  <BaseButton
+    class="px-4 py-2 bg-[#649] text-white text-lg mx-auto mt-3 font-semibold w-full"
+    @click="store.setIsOpened"
+  >
   Back to Notes
   </BaseButton>
 </template>

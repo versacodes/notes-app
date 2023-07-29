@@ -29,8 +29,12 @@ export const useNotesStore = defineStore('notes', {
     // sets the open_note_index based on given argument and set is_opened to the opposite boolean value
     setOpenNoteIndex(note_index) {
       this.open_note_index = note_index
-      this.is_opened = !this.is_opened
+      this.setIsOpened()
     },
+    // set is_opened to the opposite boolean value
+    setIsOpened() {
+      this.is_opened = !this.is_opened
+    }
   },
   getters: {
     notesLength: (state) => {
