@@ -1,17 +1,25 @@
 <script setup>
-import BaseButton from "./BaseButton.vue"
+import BaseButton from './BaseButton.vue'
 import { TrashIcon } from '@heroicons/vue/20/solid'
+import { useNotesStore } from '../store/notesStore.js'
+import { computed } from 'vue'
+
+const store = useNotesStore()
+
 defineProps({
   note_title: String,
   note_content: String,
+  note_index: Number,
 })
+
 </script>
 
 <template>
   <div class="py-6 px-6 bg-white card relative">
+    <!-- delete note button -->
     <BaseButton
-      name_btn=""
-      class="bg-red-500 text-white flex justify-center items-center font-bold  absolute w-[1.6rem] h-[1.6rem] right-8 rounded-[50%] top-[40%] "
+      class="bg-red-500 text-white flex justify-center items-center font-bold  absolute w-[1.6rem] h-[1.6rem] right-8 rounded-[50%] top-[40%]"
+      @click="store.setNotesToFiltered(note_index)"
     >
       <!-- replaces slot content in BaseButton -->
       <TrashIcon class="w-[0.8rem] h-[0.8rem]" />

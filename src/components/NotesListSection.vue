@@ -13,9 +13,10 @@ const store = useNotesStore()
       class=" md:w-[30rem] sm:w-[25rem] bg-neutral-50 mx-auto h-[20rem] overflow-y-scroll break-words"
     >
       <NotesCard
-        v-for="note in store.notes_array"
+        v-for="(note, index) in store.notes_array"
         :note_title="note.title"
         :note_content="note.content"
+        :note_index="index"
         :key="note.id"
       />
     </section>
