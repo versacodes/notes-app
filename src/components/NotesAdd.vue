@@ -32,10 +32,10 @@ defineEmits(['addNoteEvent', 'update:note_title', 'update:note_content'])
         @input="$emit('update:note_content', $event.target.value)"
     ></textarea>
     <BaseButton
-        name_btn="Add Note"
         class="px-4 py-2 bg-[#649] text-white text-lg mx-auto mt-3 font-semibold w-full"
         @click="$emit('addNoteEvent')"
-    />
+    >Add Note
+    </BaseButton>
   </div>
 </template>
 
