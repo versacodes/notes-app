@@ -18,6 +18,7 @@ const store = useNotesStore()
         :note_content="note.content"
         :note_index="index"
         :key="note.id"
+        @click="store.setOpenNoteIndex(index)"
       />
     </section>
   </template>

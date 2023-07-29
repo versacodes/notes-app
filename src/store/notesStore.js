@@ -5,6 +5,8 @@ export const useNotesStore = defineStore('notes', {
   state: () => {
     return {
       notes_array: [], // array of objects
+      open_note_index: null,
+      is_opened: false,
     }
   },
   // actions
@@ -23,7 +25,11 @@ export const useNotesStore = defineStore('notes', {
     //note_index is index from the v-for loop of NotesCard
     setNotesToFiltered(note_index) {
       this.notes_array = this.notes_array.slice(0, note_index).concat(this.notes_array.slice(note_index+1, this.notesLength))
-      
+    },
+    // sets the open_note_index based on given argument and set is_opened to the opposite boolean value
+    setOpenNoteIndex(note_index) {
+      this.open_note_index = note_index
+      this.is_opened = !this.is_opened
     },
   },
   getters: {
