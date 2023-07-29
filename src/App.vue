@@ -41,7 +41,7 @@ const content = ref("") // note content
       </BaseButton>
     </template>
 
-    <NotesOpen v-else-if="store.is_opened" />
+    <NotesOpen v-else-if="store.is_opened && !is_adding_note" />
     
     <NotesAdd
       v-else

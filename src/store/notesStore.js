@@ -40,5 +40,17 @@ export const useNotesStore = defineStore('notes', {
     notesLength: (state) => {
       return state.notes_array.length
     },
+    openedNoteTitle: (state) => {
+      if(state.open_note_index === null) {
+        return
+      }
+      return state.notes_array[state.open_note_index].title
+    },
+    openedNoteContent: (state) => {
+      if(state.open_note_index === null) {
+        return
+      }
+      return state.notes_array[state.open_note_index].content
+    },
   }
 })

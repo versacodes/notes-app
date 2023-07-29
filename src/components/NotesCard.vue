@@ -19,7 +19,7 @@ defineProps({
     <!-- delete note button -->
     <BaseButton
       class="bg-red-500 text-white flex justify-center items-center font-bold  absolute w-[1.6rem] h-[1.6rem] right-8 rounded-[50%] top-[40%]"
-      @click="store.setNotesToFiltered(note_index)"
+      @click.stop="store.setNotesToFiltered(note_index)"
     >
       <!-- replaces slot content in BaseButton -->
       <TrashIcon class="w-[0.8rem] h-[0.8rem]" />
