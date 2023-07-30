@@ -7,6 +7,7 @@ export const useNotesStore = defineStore('notes', {
       notes_array: [], // array of objects
       open_note_index: null,
       is_opened: false,
+      is_editing: false,
     }
   },
   // actions
@@ -19,6 +20,10 @@ export const useNotesStore = defineStore('notes', {
           content: content,
         }
       );
+    },
+    editNotes(edited_title, edited_content) {
+      this.notes_array[this.open_note_index].title = edited_title
+      this.notes_array[this.open_note_index].content = edited_content
     },
     // setting notes_array to a new filtered value instead of mutating
     // setting and mutating are two different things - setting a value is preferable
@@ -34,6 +39,12 @@ export const useNotesStore = defineStore('notes', {
     // set is_opened to the opposite boolean value
     setIsOpened() {
       this.is_opened = !this.is_opened
+    },
+    setIsEditing() {
+      // set is_opened to false if editing; vice versa
+      this.is_editing = !this.is_editing
+      // console.log(this.is_opened)
+      console.log(this.is_editing)
     }
   },
   getters: {

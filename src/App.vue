@@ -2,6 +2,7 @@
 import NotesListSection from "./components/NotesListSection.vue"
 import BaseButton from "./components/BaseButton.vue"
 import NotesOpen from "./components/NotesOpen.vue"
+import NotesEdit from "./components/NotesEdit.vue"
 import { useNotesStore } from "./store/notesStore.js"
 import { ref } from 'vue'
 import NotesAdd from "./components/NotesAdd.vue"
@@ -28,7 +29,7 @@ const content = ref("") // note content
 <template>
   <!-- wrapper class for center aligned -->
   <main class="flex flex-col justify-center items-center w-[75%] md:w-[60%]">
-    <template v-if="!is_adding_note && !store.is_opened">
+    <template v-if="!is_adding_note && !store.is_opened && !store.is_editing">
       <h1 class="text-zinc-900 font-bold text-4xl mb-5">notes</h1>
       <NotesListSection />
       
@@ -41,7 +42,9 @@ const content = ref("") // note content
       </BaseButton>
     </template>
 
-    <NotesOpen v-else-if="store.is_opened && !is_adding_note" />
+    <NotesOpen v-else-if="store.is_opened && !is_adding_note && !store.is_editing" />
+
+    <NotesEdit v-else-if="store.is_editing && !store.is_opened && !is_adding_note" />
     
     <NotesAdd
       v-else

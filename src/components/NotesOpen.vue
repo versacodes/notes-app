@@ -19,8 +19,10 @@ const store = useNotesStore()
     >
     Back to Notes
     </BaseButton>
+    <!-- set is_opened to false then set is_editing to true to show NotesEdit -->
     <BaseButton
       class="px-4 py-2 bg-[#649] text-white text-lg mt-2 font-semibold"
+      @click="store.setIsOpened(); store.setIsEditing();"
     >
     Edit Note
     </BaseButton>
