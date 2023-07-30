@@ -7,8 +7,18 @@ import { ref } from 'vue'
 const store = useNotesStore()
 
 // use these two values to store the values of inputs and send it as a argument for store.editNotes
-const edit_title = ref("")
-const edit_content = ref("")
+// default values should be the current note title and content
+const edit_title = ref(store.openedNoteTitle)
+const edit_content = ref(store.openedNoteContent)
+
+// update if edit title and content not empty then set values to event.target.value else defaults to event.target.value 
+function updateEditTitle() {
+  return edit_title.value ? edit_title.value = event.target.value : event.target.value
+}
+
+function updateEditContent() {
+  return edit_content.value ? edit_content.value = event.target.value : event.target.value
+}
 
 
 </script>
@@ -21,13 +31,13 @@ const edit_content = ref("")
     type="text"
     class="py-2 px-3"
     :value="store.openedNoteTitle"
-    @input="edit_title = $event.target.value"
+    @input="updateEditTitle(event)"
   />
   <textarea
     placeholder="Edit note content"
     class="py-2 px-3 mt-2 h-[12rem] resize-none"
     :value="store.openedNoteContent"
-    @input="edit_content = $event.target.value"
+    @input="updateEditContent(event)"
   >
   </textarea>
   <!-- save updated values to correct note in notes_array then set is_editing to false -->

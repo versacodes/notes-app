@@ -27,7 +27,8 @@ export const useNotesStore = defineStore('notes', {
     },
     // setting notes_array to a new filtered value instead of mutating
     // setting and mutating are two different things - setting a value is preferable
-    //note_index is index from the v-for loop of NotesCard
+    // note_index is index from the v-for loop of NotesCard
+    // note_index is the index of note that we want to remove/delete
     setNotesToFiltered(note_index) {
       this.notes_array = this.notes_array.slice(0, note_index).concat(this.notes_array.slice(note_index+1, this.notesLength))
     },
