@@ -11,9 +11,6 @@ const props = defineProps({
 
 defineEmits(['addNoteEvent', 'update:note_title', 'update:note_content'])
 
-// get template ref, assign ref to element/component, use onMounted to focus
-
-
 
 </script>
 
