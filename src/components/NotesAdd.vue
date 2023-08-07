@@ -2,14 +2,17 @@
 import BaseInput from "./BaseInput.vue"
 import BaseButton from "./BaseButton.vue"
 import { useNotesStore } from "../store/notesStore.js"
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const props = defineProps({
-    note_title: String, // passed as v-model
+    note_title: String, // passed as v-model - v-model:note_title
     note_content: String, // passed as v-model
 })
 
 defineEmits(['addNoteEvent', 'update:note_title', 'update:note_content'])
+
+// get template ref, assign ref to element/component, use onMounted to focus
+
 
 
 </script>
@@ -23,11 +26,12 @@ defineEmits(['addNoteEvent', 'update:note_title', 'update:note_content'])
         class="py-2 px-3"
         :value="note_title"
         @input="$emit('update:note_title', $event.target.value)"
+        :is-focused="true"
     />
     <!-- multiple v-model in component -->
     <textarea
         class="py-2 px-3 mt-2 h-[12rem] resize-none"
-        placeholder="Enter notes' content"
+        placeholder="Enter note's content"
         :value="note_content"
         @input="$emit('update:note_content', $event.target.value)"
     ></textarea>

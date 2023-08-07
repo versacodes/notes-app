@@ -2,11 +2,11 @@
 import BaseInput from './BaseInput.vue'
 import BaseButton from './BaseButton.vue'
 import { useNotesStore } from "../store/notesStore.js"
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const store = useNotesStore()
 
-// use these two values to store the values of inputs and send it as a argument for store.editNotes
+// use these two values to store the values of inputs and send it as a argument for store.editNotes()
 // default values should be the current note title and content
 const edit_title = ref(store.openedNoteTitle)
 const edit_content = ref(store.openedNoteContent)
@@ -20,7 +20,6 @@ function updateEditContent() {
   return edit_content.value ? edit_content.value = event.target.value : event.target.value
 }
 
-
 </script>
 
 <template>
@@ -32,6 +31,7 @@ function updateEditContent() {
     class="py-2 px-3"
     :value="store.openedNoteTitle"
     @input="updateEditTitle(event)"
+    :is-focused="true"
   />
   <textarea
     placeholder="Edit note content"
