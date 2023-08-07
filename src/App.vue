@@ -48,8 +48,8 @@ const content = ref("") // note content
     
     <NotesAdd
       v-else
-      v-model:note_title="title"
-      v-model:note_content="content"
+      v-model:note-title="title"
+      v-model:note-content="content"
       @add-note-event="store.addNotes(title, content); setAddingNote(); resetAddNoteInputs();"
     />
   </main>

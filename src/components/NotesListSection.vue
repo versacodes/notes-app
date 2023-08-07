@@ -14,9 +14,9 @@ const store = useNotesStore()
     >
       <NotesCard
         v-for="(note, index) in store.notes_array"
-        :note_title="note.title"
-        :note_content="note.content"
-        :note_index="index"
+        :note-title="note.title"
+        :note-content="note.content"
+        :note-index="index"
         :key="note.id"
         @click="store.setOpenNoteIndex(index)"
       />

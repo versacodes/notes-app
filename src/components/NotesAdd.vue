@@ -5,11 +5,11 @@ import { useNotesStore } from "../store/notesStore.js"
 import { ref, onMounted } from 'vue'
 
 const props = defineProps({
-    note_title: String, // passed as v-model - v-model:note_title
-    note_content: String, // passed as v-model
+    noteTitle: String, // passed as v-model - v-model:noteTitle
+    noteContent: String, // passed as v-model
 })
 
-defineEmits(['addNoteEvent', 'update:note_title', 'update:note_content'])
+defineEmits(['addNoteEvent', 'update:noteTitle', 'update:noteContent'])
 
 
 </script>
@@ -21,16 +21,16 @@ defineEmits(['addNoteEvent', 'update:note_title', 'update:note_content'])
         type="text"
         placeholder="Enter title"
         class="py-2 px-3"
-        :value="note_title"
-        @input="$emit('update:note_title', $event.target.value)"
+        :value="noteTitle"
+        @input="$emit('update:noteTitle', $event.target.value)"
         :is-focused="true"
     />
     <!-- multiple v-model in component -->
     <textarea
         class="py-2 px-3 mt-2 h-[12rem] resize-none"
         placeholder="Enter note's content"
-        :value="note_content"
-        @input="$emit('update:note_content', $event.target.value)"
+        :value="noteContent"
+        @input="$emit('update:noteContent', $event.target.value)"
     ></textarea>
     <BaseButton
         class="px-4 py-2 bg-[#649] text-white text-lg mx-auto mt-3 font-semibold w-full"
