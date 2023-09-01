@@ -24,6 +24,10 @@ function resetAddNoteInputs() {
 const title = ref("") // note title
 const content = ref("") // note content
 
+function saveNote() {
+  localStorage.setItem('notes', JSON.stringify(store.notes_array))
+  store.notes_array.value = JSON.parse(localStorage.getItem('notes'))
+}
 </script>
 
 <template>
@@ -50,7 +54,7 @@ const content = ref("") // note content
       v-else
       v-model:note-title="title"
       v-model:note-content="content"
-      @add-note-event="store.addNotes(title, content); setAddingNote(); resetAddNoteInputs();"
+      @add-note-event="store.addNotes(title, content); setAddingNote(); resetAddNoteInputs(); saveNote()"
     />
   </main>
 </template>

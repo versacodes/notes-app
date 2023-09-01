@@ -43,16 +43,16 @@ const isContentLong = computed(() => {
       <!-- replaces slot content in BaseButton -->
       <TrashIcon class="w-[0.8rem] h-[0.8rem]" />
     </BaseButton>
-    <h2 class="font-bold text-2xl pr-20 mb-2 text-stone-800">
+    <h2 class="font-bold text-2xl pr-20 mb-2 text-stone-700">
     {{previewNoteTitle}}
     <span class="text-zinc-500 text-sm" v-if="isTitleLong">...</span>
     </h2>
-    <p class="text-stone-700 text-md pr-20">{{previewNoteContent}}<span class="text-zinc-500 text-sm" v-if="isContentLong">...</span></p>
+    <p class="text-stone-600 text-md pr-20">{{previewNoteContent}}<span class="text-zinc-500 text-sm" v-if="isContentLong">...</span></p>
   </div>
 </template>
 
 <style scoped>
 .card ~ .card {
-  border-top: 2px solid #444;
+  border-top: 3px dashed #444;
 }
 </style>

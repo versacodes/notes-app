@@ -4,14 +4,16 @@ export const useNotesStore = defineStore('notes', {
 
   state: () => {
     return {
-      notes_array: [], // array of objects
+      notes_array: JSON.parse(localStorage.getItem('notes', JSON.stringify([]))) || [], // array of objects
       open_note_index: null,
       is_opened: false,
       is_editing: false,
+      br: '<br>'
     }
   },
   // actions
   actions: {
+    // pushing an object in notes_array
     addNotes(title, content) {
       this.notes_array.push(
         {
